@@ -1,0 +1,18 @@
+<!-- Formulario para agregar una nueva tarea -->
+<form (submit)="addTask()">
+  <input type="text" placeholder="Nueva tarea" [(ngModel)]="newTask.descripcion" name="taskDescription">
+  <button type="submit">Agregar</button>
+</form>
+
+<!-- Lista de tareas -->
+<ul>
+  <li *ngFor="let task of tasks">
+    <input type="checkbox" [(ngModel)]="task.completada">
+    <span [class.completed]="task.completada">{{ task.descripcion }}</span>
+    <button (click)="deleteTask(task._id)">Eliminar</button>
+  </li>
+</ul>
+
+
+
+  <router-outlet></router-outlet>
